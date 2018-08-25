@@ -2,8 +2,8 @@ require("dotenv").config();
 express = require('express');
 bodyParser = require('body-parser');
 transactionController = require('./lib/Controller/TransactionController');
+loginController = require('./lib/Controller/LoginController');
 mongoDB = require('./lib/NoSQL/MongoDB');
-middleware = require('./lib/Controller/Auth/Middleware');
 
 app = express();
 
@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 
 let port = process.env.PORT || 8080;
 
-transactionController.use(middleware);
-
 app.use('/api/Transaction', transactionController);
+
+app.use('/api/Login', loginController);
 
 app.listen(port);
 
