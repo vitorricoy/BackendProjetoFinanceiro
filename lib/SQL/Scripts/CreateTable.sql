@@ -1,0 +1,1 @@
+CREATE TABLE Transactions(id SERIAL PRIMARY KEY, Month INT NOT NULL, Data Text NOT NULL, UserId Text NOT NULL)
